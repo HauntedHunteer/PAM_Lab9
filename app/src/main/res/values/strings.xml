@@ -17,6 +17,8 @@
     <string name="attachment_title">Double speed</string>
     <string name="attachment_summary_on">Double working frequency </string>
     <string name="attachment_summary_off">Standard operating frequency</string>
+    <string name="timePref_title">Choose time</string>
+    <string name="startFromBeginning_title">Start Counter From 0</string>
 
     <!-- Main activity -->
     <string name="info_state"> Service state: </string>

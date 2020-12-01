@@ -29,6 +29,18 @@
             app:summaryOn="@string/attachment_summary_on"
             app:title="@string/attachment_title" />
 
+        <ListPreference
+            app:key="timePref"
+            app:title="@string/timePref_title"
+            app:defaultValue="2"
+            app:entries="@array/listTimes"
+            app:entryValues="@array/listTimes" />
+
+        <SwitchPreferenceCompat
+            app:key="startFromBeginning"
+            app:title="@string/startFromBeginning_title"
+            app:defaultValue="true"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -22,8 +22,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private Button buttonStart, buttonStop, buttonRestart;
     private TextView textInfoService, textInfoSettings;
-    private String message;
-    private Boolean show_time, work, work_double;
+    private String message, time;
+    private Boolean show_time, work, work_double, startFromBeginning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
         startIntent.putExtra(MyForegroundService.TIME,show_time);
         startIntent.putExtra(MyForegroundService.WORK,work);
         startIntent.putExtra(MyForegroundService.WORK_DOUBLE,work_double);
-
+        startIntent.putExtra(MyForegroundService.TIME_PREF,time);
+        startIntent.putExtra(MyForegroundService.START_FROM_BEGINNING,startFromBeginning);
 
         ContextCompat.startForegroundService(this, startIntent);
         updateUI();
@@ -109,11 +110,15 @@ public class MainActivity extends AppCompatActivity {
         show_time = sharedPreferences.getBoolean("show_time", true);
         work = sharedPreferences.getBoolean("sync",true);
         work_double = sharedPreferences.getBoolean("double", false);
+        time = sharedPreferences.getString("timePref", "2");
+        startFromBeginning = sharedPreferences.getBoolean("startFromBeginning", true);
 
         return "Message: " + message + "\n"
                 +"show_time: " + show_time.toString() +"\n"
                 +"work: " + work.toString() + "\n"
-                +"double: " + work_double.toString();
+                +"double: " + work_double.toString() + "\n"
+                +"time: " + time+ "s" + "\n"
+                +"startFromBeginning: " + startFromBeginning;
     }
 
     private void updateUI(){
